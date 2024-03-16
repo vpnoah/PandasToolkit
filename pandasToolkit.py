@@ -2,7 +2,7 @@ import pandas as pd
 
 df2 = pd.read_csv("pokemon.csv") #loads in the csv file as a dataframe
 df = pd.read_excel("pokemon_data.xlsx") #loads in the excel file as a dataframe
-'''
+
 print(df.head(5)) #prints the first 5 rows of the dataframe
 print(df.tail(5)) #prints the last 5 rows of the dataframe
 
@@ -73,9 +73,11 @@ df2 = df.groupby('Type 1')[['Defense', 'Sp. Def']].sum()
 
 df2 = df.groupby('Type 1').count()
 print(df2)
-'''
-df2 = df.drop(columns = ['Name', 'Type 1', 'Type 2', 'Legendary'])
 
+df2 = df.drop(columns = ['Name', 'Type 1', 'Type 2', 'Legendary'])
 #the corr method tracks correlation between columns
 print(df2.corr())
+
+#groups the df by type, and gets stats on the HP column
+print(df.groupby('Type 1')['HP'].describe())
 
